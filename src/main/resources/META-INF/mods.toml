@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+
+[[mods]]
+modId="galarshrine"
+version="0.0.1"
+displayName="Galar Shrine Orbs"
+displayURL="" # URL HERE
+credits="Haru" # Your name here
+authors="Haru" # Your name here
+description='''
+Modifies shrines to spawn Galarian birds when the orb has a modifiable NBT tag
+'''
+
+[[dependencies.galarshrine]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.galarshrine]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+
+
+[[dependencies.galarshrine]]
+    modId="pixelmon"
+    mandatory=true
+    versionRange="[9.1.2,)"
+    ordering="NONE"
+    side="BOTH"
