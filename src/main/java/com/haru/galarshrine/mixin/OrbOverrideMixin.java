@@ -28,6 +28,8 @@ public class OrbOverrideMixin {
                 CompoundNBT nbt = stack.getTag();
                 if(nbt.getBoolean(GalarShrine.getConfig().getGalarNBT())) {
                     ((OrbAccessor) orb).setGalarian(true);
+                } else {
+                    ((OrbAccessor) orb).setGalarian(false);
                 }
             }
         }

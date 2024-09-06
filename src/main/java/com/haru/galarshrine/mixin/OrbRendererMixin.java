@@ -48,12 +48,13 @@ public class OrbRendererMixin implements OrbAccessor {
             TextureAtlasSprite orbTexture = (TextureAtlasSprite) Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.of("pixelmon:items/back"));
             quadList.addAll(ItemLayerModel.getQuadsForSprite(0, orbTexture, TransformationMatrix.identity()));
             if (this.orbType == PixelmonItems.uno_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.of("galarshrine:item/galaruno_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galaruno_orb"));
             } else if (this.orbType == PixelmonItems.dos_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.of("galarshrine:item/galardos_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galardos_orb"));
             } else if (this.orbType == PixelmonItems.tres_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.of("galarshrine:item/galartres_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galartres_orb"));
             }
+
 
             if (this.height >= 1.0F) {
                 quadList.addAll(ItemLayerModel.getQuadsForSprite(0, orbTexture, TransformationMatrix.identity()));
