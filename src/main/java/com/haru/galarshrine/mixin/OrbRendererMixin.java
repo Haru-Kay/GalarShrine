@@ -1,5 +1,6 @@
 package com.haru.galarshrine.mixin;
 
+import com.haru.galarshrine.GalarShrine;
 import com.haru.galarshrine.util.OrbAccessor;
 import com.pixelmonmod.pixelmon.api.registries.PixelmonItems;
 import com.pixelmonmod.pixelmon.api.util.helpers.ResourceLocationHelper;
@@ -11,6 +12,7 @@ import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.item.Item;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.TransformationMatrix;
 import net.minecraftforge.client.model.ItemLayerModel;
 import net.minecraftforge.client.model.data.IModelData;
@@ -48,11 +50,11 @@ public class OrbRendererMixin implements OrbAccessor {
             TextureAtlasSprite orbTexture = (TextureAtlasSprite) Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.of("pixelmon:items/back"));
             quadList.addAll(ItemLayerModel.getQuadsForSprite(0, orbTexture, TransformationMatrix.identity()));
             if (this.orbType == PixelmonItems.uno_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galaruno_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(new ResourceLocation(GalarShrine.MOD_ID, "textures/items/galaruno_orb.png"));
             } else if (this.orbType == PixelmonItems.dos_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galardos_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(new ResourceLocation(GalarShrine.MOD_ID, "textures/items/galardos_orb.png"));
             } else if (this.orbType == PixelmonItems.tres_orb.getItem()) {
-                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(ResourceLocationHelper.ofTexture("galarshrine:items/galartres_orb"));
+                orbTexture = (TextureAtlasSprite)Minecraft.getInstance().getTextureAtlas(AtlasTexture.LOCATION_BLOCKS).apply(new ResourceLocation(GalarShrine.MOD_ID, "textures/items/galartres_orb.png"));
             }
 
 
