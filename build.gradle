@@ -1,3 +1,9 @@
+buildscript {
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
@@ -5,7 +11,7 @@ plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
 
-//apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'org.spongepowered.mixin'
 
 minecraft {
     mappings channel: 'official', version: '1.16.5'
@@ -26,7 +32,7 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-            //arg "-mixin.config=galarshrine.mixin.json"
+            arg "-mixin.config=galarshrine.mixin.json"
 
             mods {
                 galarshrine {
@@ -50,7 +56,7 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-            //arg "-mixin.config=galarshrine.mixin.json"
+            arg "-mixin.config=galarshrine.mixin.json"
 
             mods {
                 galarshrine {
@@ -120,7 +126,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
 
-    //annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     implementation fg.deobf('pixelmon:Pixelmon-1.16.5-9.1.12-universal:9.1.12')
 
@@ -128,12 +134,12 @@ dependencies {
     // Any other dependencies go here
     // To shade them do `shadow` rather than `implementation`
 }
-/*
+
 mixin {
     add sourceSets.main, "galarshrine.mixin-refmap.json"
     config "galarshrine.mixin.json"
 }
-*/
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }

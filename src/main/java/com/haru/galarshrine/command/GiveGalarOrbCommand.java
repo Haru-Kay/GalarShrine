@@ -88,6 +88,7 @@ public class GiveGalarOrbCommand extends PixelCommand {
             boolean galar = false;
             if(args.length > 2 && args[2].equals("galar")) {
                 nbt.putBoolean(GalarShrine.getConfig().getGalarNBT(), true);
+
                 galar = true;
             }
             orb.setTag(nbt);

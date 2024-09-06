@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.haru.galarshrine.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "OrbRendererMixin",
+    "OrbOverrideMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "galarshrine.mixin-refmap.json"
+}
