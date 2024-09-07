@@ -14,11 +14,15 @@ import com.pixelmonmod.pixelmon.command.PixelCommand;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
@@ -54,23 +58,25 @@ public class GiveGalarOrbCommand extends PixelCommand {
                 args = (String[])Arrays.copyOfRange(args, 1, args.length);
             }
 
-            ItemStack orb;
+            ResourceLocation orbRL = new ResourceLocation(GalarShrine.getConfig().getOrbItem());
+            ItemStack orb = new ItemStack(Registry.ITEM.get(orbRL));
+            CompoundNBT nbt = new CompoundNBT();
+            CompoundNBT nameNBT = new CompoundNBT();
             switch (args[0]) {
                 case "Articuno":
-                    orb = new ItemStack(PixelmonItems.uno_orb);
+                    nbt.putInt("CustomModelData", 1);
                     break;
                 case "Zapdos":
-                    orb = new ItemStack(PixelmonItems.dos_orb);
+                    nbt.putInt("CustomModelData", 2);
                     break;
                 case "Moltres":
-                    orb = new ItemStack(PixelmonItems.tres_orb);
+                    nbt.putInt("CustomModelData", 3);
                     break;
                 default:
                     PixelmonCommandUtils.endCommand("Argument " + args[0] + " not valid.", new Object[]{args[0]});
                     return;
             }
 
-            CompoundNBT nbt = orb.getTag();
             if(args[1].equals("full")) {
                 nbt.putInt("Damage", 375);
             } else if (args[1] == "value") {
@@ -87,6 +93,16 @@ public class GiveGalarOrbCommand extends PixelCommand {
 
             boolean galar = false;
             if(args.length > 2 && args[2].equals("galar")) {
+                if(args[0].equals("Articuno")) {
+                    nameNBT.putString("Name", GalarShrine.getConfig().getUnoName());
+                }
+                if(args[0].equals("Zapdos")) {
+                    nameNBT.putString("Name", GalarShrine.getConfig().getDosName());
+                }
+                if(args[0].equals("Moltres")) {
+                    nameNBT.putString("Name", GalarShrine.getConfig().getTresName());
+                }
+                nbt.put("display", nameNBT);
                 nbt.putBoolean(GalarShrine.getConfig().getGalarNBT(), true);
 
                 galar = true;
@@ -94,7 +110,7 @@ public class GiveGalarOrbCommand extends PixelCommand {
             orb.setTag(nbt);
 
             String text = " a " + (galar ? "Galarian " : "") + args[0] + " orb.";
-            sender.sendSuccess(new StringTextComponent("Gave " + player.getName().getString() + text), false);
+            sender.sendSuccess(new StringTextComponent("Gave " + player.getName().getString() + text), true);
             player.inventory.add(orb);
         } else {
             sender.sendSuccess(PixelmonCommandUtils.format(TextFormatting.RED, "pixelmon.command.general.invalid", new Object[0]), false);

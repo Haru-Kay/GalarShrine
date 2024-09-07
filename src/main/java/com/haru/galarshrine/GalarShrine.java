@@ -1,10 +1,8 @@
 package com.haru.galarshrine;
 
 import com.haru.galarshrine.command.GiveGalarOrbCommand;
-import com.haru.galarshrine.listener.BirdShrineListener;
-import com.pixelmonmod.pixelmon.Pixelmon;
+import com.haru.galarshrine.config.GalarShrineConfig;
 import com.pixelmonmod.pixelmon.api.config.api.yaml.YamlConfigFactory;
-import com.pixelmonmod.pixelmon.command.PixelmonCommands;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,7 +16,6 @@ import net.minecraftforge.fml.event.server.FMLServerStoppingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.haru.galarshrine.config.GalarShrineConfig;
 
 import java.io.IOException;
 
@@ -48,7 +45,6 @@ public class GalarShrine {
         // Here is how you register a listener for Pixelmon events
         // Pixelmon has its own event bus for its events, as does TCG
         // So any event listener for those mods need to be registered to those specific event buses
-        Pixelmon.EVENT_BUS.register(new BirdShrineListener());
     }
 
     @SubscribeEvent

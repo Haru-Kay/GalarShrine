@@ -9,6 +9,10 @@ import info.pixelmon.repack.org.spongepowered.objectmapping.ConfigSerializable;
 public class GalarShrineConfig extends AbstractYamlConfig {
 
     private String galarNBT = "Galarian";
+    private String orbItem = "pixelmon:common_stone";
+    private String unoName = "Orb of Psychic Souls";;
+    private String dosName = "Orb of Fighting Souls";;
+    private String tresName = "Orb of Dark Souls";
 
     public GalarShrineConfig() {
         super();
@@ -16,5 +20,17 @@ public class GalarShrineConfig extends AbstractYamlConfig {
 
     public String getGalarNBT() {
         return this.galarNBT;
+    }
+    public String getOrbItem() {
+        return this.orbItem;
+    }
+    public String getUnoName() {
+        return this.unoName;
+    }
+    public String getDosName() {
+        return this.dosName;
+    }
+    public String getTresName() {
+        return this.tresName;
     }
 }
