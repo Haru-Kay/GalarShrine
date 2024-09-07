@@ -1,6 +1,5 @@
 package com.haru.galarshrine;
 
-import com.haru.galarshrine.command.GiveGalarOrbCommand;
 import com.haru.galarshrine.config.GalarShrineConfig;
 import com.pixelmonmod.pixelmon.api.config.api.yaml.YamlConfigFactory;
 import net.minecraftforge.common.MinecraftForge;
@@ -67,7 +66,7 @@ public class GalarShrine {
 
     @SubscribeEvent
     public static void onCommandRegister(RegisterCommandsEvent event) {
-        new GiveGalarOrbCommand(event.getDispatcher());
+
     }
 
     @SubscribeEvent

@@ -12,6 +12,7 @@ import com.pixelmonmod.pixelmon.api.storage.PlayerPartyStorage;
 import com.pixelmonmod.pixelmon.api.storage.StorageProxy;
 import com.pixelmonmod.pixelmon.api.util.EncounterData;
 import com.pixelmonmod.pixelmon.api.util.helpers.RandomHelper;
+import com.pixelmonmod.pixelmon.api.util.helpers.ResourceLocationHelper;
 import com.pixelmonmod.pixelmon.battles.BattleRegistry;
 import com.pixelmonmod.pixelmon.battles.controller.participants.PlayerParticipant;
 import com.pixelmonmod.pixelmon.battles.controller.participants.WildPixelmonParticipant;
@@ -34,6 +35,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.haru.galarshrine.util.GalarOrbChecker.isValidGalarItem;
+
 @Mixin(BirdShrineTileEntity.class)
 public class ShrineBlockMixin extends TileEntity {
 
@@ -51,7 +54,6 @@ public class ShrineBlockMixin extends TileEntity {
             cancellable = true
     )
     private void galarOrbActivate(PlayerEntity player, ShrineBlock block, BlockState state, ItemStack item, CallbackInfo ci){
-        System.out.println("injected");
         if(isValidGalarItem(item)) {
             if (!player.level.isClientSide) {
                 Species species;
@@ -112,20 +114,6 @@ public class ShrineBlockMixin extends TileEntity {
 
             ci.cancel();
         }
-    }
-
-    private boolean hasGalarTag(ItemStack item) {
-        CompoundNBT nbt = item.getTag();
-        String galar = GalarShrine.getConfig().getGalarNBT();
-        return nbt.contains(galar) && nbt.getBoolean(galar) == true;
-    }
-
-    private boolean isValidGalarItem(ItemStack item) {
-        String orbString = GalarShrine.getConfig().getOrbItem();
-        ResourceLocation orbItem = new ResourceLocation(orbString);
-        System.out.println(orbItem);
-        System.out.println(item.getItem().getRegistryName());
-        return item.getItem().getRegistryName().equals(orbItem) && hasGalarTag(item);
     }
 
 

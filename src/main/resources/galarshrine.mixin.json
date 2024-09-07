@@ -3,7 +3,8 @@
   "package": "com.haru.galarshrine.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ShrineBlockMixin"
+    "ShrineBlockMixin",
+    "OrbMixin"
   ],
   "injectors": {
     "defaultRequire": 1

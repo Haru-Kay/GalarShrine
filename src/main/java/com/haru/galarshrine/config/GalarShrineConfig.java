@@ -10,9 +10,9 @@ public class GalarShrineConfig extends AbstractYamlConfig {
 
     private String galarNBT = "Galarian";
     private String orbItem = "pixelmon:common_stone";
-    private String unoName = "Orb of Psychic Souls";;
-    private String dosName = "Orb of Fighting Souls";;
-    private String tresName = "Orb of Dark Souls";
+    private String unoName = "Orb of Spiritual Souls";;
+    private String dosName = "Orb of Warrior Souls";;
+    private String tresName = "Orb of Shattered Souls";
 
     public GalarShrineConfig() {
         super();
