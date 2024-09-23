@@ -28,7 +28,6 @@ public class OrbMixin {
     public static int full;
 
     @Inject(
-            remap = false,
             method = "Lcom/pixelmonmod/pixelmon/items/ShrineOrbItem;inventoryTick(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;IZ)V",
             at = @At("HEAD"),
             cancellable = true
