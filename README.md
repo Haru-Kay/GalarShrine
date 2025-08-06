@@ -1,5 +1,6 @@
 # GalarShrines
  Adds a modifiable tag to spawn Galar Birds from shrines
+ Pixelmon Add On 9.1.12
 
 # Give Command
 ## Non-Full Orb
